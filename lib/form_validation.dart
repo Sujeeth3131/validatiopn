@@ -70,46 +70,94 @@ class _RegistrationFormState extends State<RegistrationForm> {
   }
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(title: Text('Registration Form')),
+
+      appBar: AppBar(title: Center(child: Text('Registration Form',style: TextStyle(color: Color(0xFF000000)),))),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
+
         child: Form(
           key: _formKey,
           child: ListView(
+
             children: [
               TextFormField(
-                decoration: InputDecoration(labelText: 'Full Name'),
+                decoration: InputDecoration(contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                    filled: true,
+                    fillColor: Color(0xFFe3ebf5),
+
+                    hintText: "Full name",
+
+                    hintStyle:
+                    TextStyle(color: Color(0xFF003a7e), fontSize: 14),
+
+                    border: OutlineInputBorder(borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15))),
                 validator: _validateName,
               ),
+
               SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: InputDecoration(contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                    filled: true,
+                    fillColor: Color(0xFFe3ebf5),
+
+                    hintText: "Email",
+
+                    hintStyle:
+                    TextStyle(color: Color(0xFF003a7e), fontSize: 14),
+
+                    border: OutlineInputBorder(borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15))),
                 validator: _validateEmail,
+
                 keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Phone Number'),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                    filled: true,
+                    fillColor: Color(0xFFe3ebf5),
+                    hintText: "Phone Number",
+                    hintStyle:TextStyle(color: Color(0xFF003a7e),fontSize: 14) ,
+                    border: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(15)),
+                      ),
                 validator: _validatePhone,
                 keyboardType: TextInputType.phone,
               ),
               SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  filled: true,
+                  fillColor: Color(0xFFe3ebf5),
+                  hintText: "Password",
+                  hintStyle: TextStyle(color: Color(0xFF003a7e),fontSize: 14),
+                  border: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(15))
+                ),
                 obscureText: true,
                 validator: _validatePassword,
                 controller: _passwordController,
               ),
               SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Confirm Password'),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  filled: true,
+                  fillColor: Color(0xFFe3ebf5),
+                  hintText: "Confirm Password",
+                  hintStyle: TextStyle(color: Color(0xFF003a7e),fontSize: 14),
+                  border: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(15))
+                ),
                 obscureText: true,
                 validator: _validateConfirmPassword,
               ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: _submitForm,
-                child: Text('Submit'),
+              SizedBox(height: 40.0),
+              SizedBox(height: 50,width: 80,
+                child: ElevatedButton(
+                  onPressed: _submitForm,
+                  child: Text('Submit'),
+                ),
               ),
             ],
           ),
